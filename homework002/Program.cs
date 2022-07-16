@@ -16,7 +16,7 @@ System.Console.WriteLine("Матрица");
  {
     for (int j = 0; j < matrix.GetLength(1); j++)
     {
-        matrix[i,j] = new Random().Next(1 , 26) ;
+        matrix[i,j] = new Random().Next(1 , 5) ;
         Console.Write(matrix[i,j] + "\t") ;
     }
     Console.WriteLine();
@@ -24,13 +24,23 @@ System.Console.WriteLine("Матрица");
  System.Console.WriteLine("Введите число которое нужно найти : ");
  int search =  int.Parse(Console.ReadLine());
 
-for (int k = 0; k < matrix.GetLength(0); k++)
+bool searchNumbers =   false;
 {
-    for (int m = 0; m < matrix.GetLength(1); m++)
-    {
-        if (search == matrix[k , m]){
-            System.Console.WriteLine($"Число находится в позиции : {k}{m} ");
-            break;
-        }
-    }
+        for (int k = 0; k < matrix.GetLength(0); k++)
+        {
+            for (int m = 0; m < matrix.GetLength(1); m++)
+            {
+                if (search == matrix[k , m]){
+                    System.Console.WriteLine($"Число находится в позиции : {k}{m} ");
+                    return;
+                }
+            }
+        }  
+}
+
+System.Console.WriteLine(searchNumbers);
+
+if (searchNumbers == false)
+{
+    System.Console.WriteLine("такого числа в массиве нет");
 }
